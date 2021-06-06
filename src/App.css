@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Button css */
+.btn-red{
+  background:red;
+}
+.btn-blue{
+  background: blue;
+  color: #fff;
+}
+.btn-orange{
+  background: orange;
+}

@@ -1,0 +1,1 @@
+//All the action types are declared in the types file.

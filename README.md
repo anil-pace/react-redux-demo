@@ -68,3 +68,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+
+
+Basic Skelton of react
+identity the components 
+      Header component — configurable logo
+      single Inputform for text / password / email
+      Select drop down 
+      modal with overlay
+      
+	Button component …. An hoc  for login/ join/ schedule / switch to audio /cancel request / 
+      Modal with layover component
+      speaker / mic / camera in a single container
