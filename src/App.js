@@ -19,20 +19,21 @@ function App() {
   return (
     <div className="App">
       <div className="wrapper">
-            <h1>All React Redux Node demo work application</h1>
-            <BrowserRouter>
-              <Switch>
-                <Route path="/dashboard">
-                  <Dashboard />
-                </Route>
-                <Route path="/preferences">
-                  <Preferences />
-                </Route>
-              </Switch>
-            </BrowserRouter>
-          </div>
-            
-          </div>
+
+        <h1>All React Redux Node demo work application</h1>
+        
+        <BrowserRouter>
+          <Switch>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/preferences">
+              <Preferences />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </div>
   );
 }
 
