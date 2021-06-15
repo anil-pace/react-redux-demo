@@ -83,7 +83,7 @@ export default function Dashboard() {
 
     <>
         
-    <h2 style={{"background":"yellow"}}>Dashboard</h2>
+    <h2 style={{"background":"yellow"}}>/Dashboard</h2>
 
     <form onSubmit={handleSubmit}>
           <Header />
