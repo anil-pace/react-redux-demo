@@ -31,15 +31,15 @@ export default function Login({ setToken }) {
 
   return (
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
+      <h1>VRI Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
+          <input type="text" onChange={(e) => setUserName(e.target.value)} />
         </label>
         <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
+          <p>Access code</p>
+          <input type="password" onChange={(e) => setPassword(e.target.value)} />
         </label>
         <div>
           <button type="submit">Submit</button>

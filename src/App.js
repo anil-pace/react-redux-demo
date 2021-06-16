@@ -1,12 +1,12 @@
 import logo from './assets/images/logo.svg';
-// import Header from './Header.js';
 
 import './App.css';
 import React, { useState } from "react";
 import Dashboard from  './components/Dashboard';
 import Login from './components/Login/Login';
 import Preferences from './components/Preferences';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import NotFound from './components/NotFound';
+import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import useToken from './useToken';
 
 
@@ -25,7 +25,7 @@ import useToken from './useToken';
 // }
 
 
-function App() {
+function App(props) {
 
   // const token = getToken();
   // const [token, setToken] = useState();
@@ -38,8 +38,10 @@ function App() {
   }
 
   const logout =  e => {
-    sessionStorage.clear();
+    localStorage.clear();
     console.log("anil ============token cleared", sessionStorage.getItem('token'));
+    // this.props.history.push("/");
+    window.location.href = "http://localhost:3000/";
   }
 
   return (
@@ -49,15 +51,25 @@ function App() {
         <h1>All React Redux Node demo, POC, homeworks here</h1>
 
         <button onClick={logout}>Logout</button>
-        
+
         <BrowserRouter>
           <Switch>
             <Route path="/dashboard">
               <Dashboard />
             </Route>
+
             <Route path="/preferences">
               <Preferences />
             </Route>
+
+            <Route exact path="/">
+              <Redirect to="/dashboard" />   
+            </Route>
+
+            <Route path="*">
+              <NotFound />
+            </Route>
+
           </Switch>
         </BrowserRouter>
       </div>
