@@ -79,6 +79,10 @@ export default function Dashboard() {
 
     // api(name);
   }
+  function handleClick(arg) {
+    alert('You clicked ' + arg);
+  }
+ 
   return(
 
     <>
@@ -92,13 +96,10 @@ export default function Dashboard() {
           <CustomFormInput label="Company" type="password" inputname="password" placeholder="enter your password" />
           <CustomFormInput label="Patient Name" type="email" inputname="email" case="bc" placeholder="enter your email" />
           
+          <CustomButton isPrimary onClick={(e)=>handleClick("accept")}>Accept Button</CustomButton>
+          <CustomButton isSecondary onClick={(e)=>handleClick("reject")}>Reject Button</CustomButton>
+          <CustomButton disabled onClick={(e)=>handleClick("disabled")}>Disabled Button</CustomButton>
 
-          {/* <Button variant="danger" color='red' handleClick={handleLogin} > Login</Button>
-          <Button variant="primary" color='blue' size="lg" handleClick={handleJoin}>Join</Button>
-          <Button variant="warning" color='orange' size="xs" handleClick={handleSchedule}>Schedule</Button> */}
-
-          <CustomButton isPrimary>Accept Button</CustomButton>
-          <CustomButton isSecondary>Reject Button</CustomButton>
 
           
 

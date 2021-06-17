@@ -1,14 +1,12 @@
+// https://scalablecss.com/styled-components-quickstart-guide/
+
 import styled, { css } from 'styled-components';
 
 
 const CustomButton = styled.button`
   display: inline-block;
-  border-radius: 3px;
-  padding: 0.5rem 0;
   margin: 0.5rem 1rem;
   width: 11rem;
-  background: transparent;
-  color: white;
   height: 50px;
   border: none;
   border-radius: 5px;
@@ -26,10 +24,19 @@ const CustomButton = styled.button`
     background: red;
     color: white;
   `}
+
   &:hover {
     cursor: pointer;
     opacity: 0.9;
   }
+
+  &:disabled {
+    background-color: black;
+    color: grey;
+    opacity: 0.7;
+    cursor: default;
+  }
+
 `;
 
 export default CustomButton;
