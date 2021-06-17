@@ -32,51 +32,53 @@ import { ThemeProvider } from "styled-components"
 //   }).then(response => response.json());
 // }
 
-const theme = {
-  borderColor: "green",
-  color: "green",
-  bgColor: "green"
-}
 
 const data = [
     {
       id: "1",
-      name: "One"
+      name: "red"
     },
     {
       id: "2",
-      name: "Two"
+      name: "blue"
     },
     {
       id: "3",
-      name: "Three"
+      name: "green"
     },
     {
       id: "4",
-      name: "Four"
+      name: "pink"
     }
   ];
+
+  // const theme = {
+  //   borderColor: "green",
+  //   color: "green",
+  //   bgColor: "green"
+  // }
+  
 
 export default function Dashboard() {
 
     const [show, setShow] = useState(false);
+     const [theme, setTheme] = useState({
+      borderColor: "green",
+      color: "green",
+      bgColor: "green"
+     });
 
-     function onSelectChange(event) {
+  function onSelectChange(event) {
     console.log(event);
+    setTheme({
+      borderColor: event,
+      color: event,
+      bgColor: event
+     });
+    // console.log("theme", theme)
   }
 
   function handleChange(event) {
-    console.log(event);
-  }
-
-  function handleLogin(event) {
-    console.log(event.target.target);
-  }
-
-  function handleJoin(event) {
-    console.log(event);
-  }
-  function handleSchedule(event) {
     console.log(event);
   }
 

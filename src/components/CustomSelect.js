@@ -9,20 +9,24 @@ function CustomSelect(props) {
 
     function handleChange(event) {
         updateSelectedData(event.target.value);
-        if (props.onSelectChange) props.onSelectChange(selectedData);
+        console.log("==========================> anil =======> " + event.target.value)
+        if (props.onSelectChange) props.onSelectChange(event.target.value);
     }
+
     let options = data.map(data => (
-        <option key={data.id} value={data.id}>
+        <option key={data.id} value={data.name}>
+        {/* <option key={data.id} value={data.id}> */}
             {data.name}
         </option>
     ));
+
     return (
         <select
             name="customSearch"
             className="custom-search-select"
             onChange={handleChange}
         >
-            <option>Select Item</option>
+            <option>Select Theme</option>
             {options}
         </select>
     );
