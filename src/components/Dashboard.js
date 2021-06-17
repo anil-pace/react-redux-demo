@@ -6,7 +6,7 @@ import Header from './Header.js';
 import Footer from './Footer.js';
 import CustomFormInput from './CustomFormInput.js';
 import CustomSelect from './CustomSelect.js';
-import Button from "./Button.js";
+import CustomButton from "./CustomButton";
 import Modal from "./Modal.js";
 import Counter from "./../containers/counterContainer";
 
@@ -93,9 +93,13 @@ export default function Dashboard() {
           <CustomFormInput label="Patient Name" type="email" inputname="email" case="bc" placeholder="enter your email" />
           
 
-          <Button variant="danger" color='red' handleClick={handleLogin} > Login</Button>
+          {/* <Button variant="danger" color='red' handleClick={handleLogin} > Login</Button>
           <Button variant="primary" color='blue' size="lg" handleClick={handleJoin}>Join</Button>
-          <Button variant="warning" color='orange' size="xs" handleClick={handleSchedule}>Schedule</Button>
+          <Button variant="warning" color='orange' size="xs" handleClick={handleSchedule}>Schedule</Button> */}
+
+          <CustomButton isPrimary>Accept Button</CustomButton>
+          <CustomButton isSecondary>Reject Button</CustomButton>
+
           
 
           <div>
