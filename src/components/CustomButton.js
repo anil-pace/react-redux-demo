@@ -16,7 +16,12 @@ const CustomButton = styled.button`
 
 
   ${props => props.isPrimary && css`
-    background: blue;
+    background: ${props => props.theme.bgColor};;
+    color: white;
+  `}
+
+  ${props => props.theme && css`
+    background: props.theme.bgColor;
     color: white;
   `}
   
@@ -24,6 +29,8 @@ const CustomButton = styled.button`
     background: red;
     color: white;
   `}
+
+ 
 
   &:hover {
     cursor: pointer;

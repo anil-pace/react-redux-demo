@@ -1,14 +1,14 @@
 
 import React, {useState} from 'react';
 
-import logo from '../assets/images/logo.svg';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import CustomFormInput from './CustomFormInput.js';
 import CustomSelect from './CustomSelect.js';
 import CustomButton from "./CustomButton";
+import CustomDiv from "./CustomDiv";
 import Modal from "./Modal.js";
-import Counter from "./../containers/counterContainer";
+import { ThemeProvider } from "styled-components"
 
 // export default function api(name) {
 //   const BUTTER_CMS_API_TOKEN = "YOUR_BUTTER_CMS_WRITE_API_TOKEN";
@@ -31,6 +31,12 @@ import Counter from "./../containers/counterContainer";
 //     })
 //   }).then(response => response.json());
 // }
+
+const theme = {
+  borderColor: "green",
+  color: "green",
+  bgColor: "green"
+}
 
 const data = [
     {
@@ -90,22 +96,25 @@ export default function Dashboard() {
     <h2 style={{"background":"yellow"}}>/Dashboard</h2>
 
     <form onSubmit={handleSubmit}>
+    <ThemeProvider theme={theme}>
+    <CustomDiv>
+          
+           <div>
+            <CustomSelect data={data} onSelectChange={onSelectChange} />
+          </div>
           <Header />
-          <img style={{"height":"50px", "width":"50px"}} src={logo} alt="logo" />
           <CustomFormInput label="Name*" type="text" inputname="username" placeholder="enter your name" onChange={handleChange}/>
           <CustomFormInput label="Company" type="password" inputname="password" placeholder="enter your password" />
           <CustomFormInput label="Patient Name" type="email" inputname="email" case="bc" placeholder="enter your email" />
           
-          <CustomButton isPrimary onClick={(e)=>handleClick("accept")}>Accept Button</CustomButton>
-          <CustomButton isSecondary onClick={(e)=>handleClick("reject")}>Reject Button</CustomButton>
-          <CustomButton disabled onClick={(e)=>handleClick("disabled")}>Disabled Button</CustomButton>
+         
 
-
+              <CustomButton isPrimary onClick={(e)=>handleClick("accept")}>Accept Button</CustomButton>
+              <CustomButton isSecondary onClick={(e)=>handleClick("reject")}>Reject Button</CustomButton>
+              <CustomButton disabled onClick={(e)=>handleClick("disabled")}>Disabled Button</CustomButton>
           
 
-          <div>
-            <CustomSelect data={data} onSelectChange={onSelectChange} />
-          </div>
+         
 
           <div>
             <button onClick={() => setShow(true)}>Show Modal</button>
@@ -138,9 +147,12 @@ export default function Dashboard() {
             Learn React
           </a>
           </header> */}
-        <Counter />
+        
         
             <Footer />
+          </CustomDiv>
+
+      </ThemeProvider>
       </form>
       </>
   );

@@ -1,5 +1,4 @@
 import logo from './assets/images/logo.svg';
-
 import './App.css';
 import React, { useState } from "react";
 import Dashboard from  './components/Dashboard';
@@ -8,6 +7,9 @@ import Preferences from './components/Preferences';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import useToken from './useToken';
+import CustomButton from "./components/CustomButton";
+
+
 
 
 // function setToken(userToken){
@@ -37,7 +39,7 @@ function App(props) {
     return <Login setToken={setToken} />
   }
 
-  const logout =  e => {
+  const handleLogout =  e => {
     localStorage.clear();
     console.log("anil ============token cleared", sessionStorage.getItem('token'));
     // this.props.history.push("/");
@@ -48,9 +50,15 @@ function App(props) {
     <div className="App">
       <div className="wrapper">
 
-        <h1>All React Redux Node demo, POC, homeworks here</h1>
+        <div style={{"display":"flex", "justifyContent": "flex-end"}}>
+          <h1>All React Redux Node demo, POC, homeworks here</h1>
+          <CustomButton isSecondary onClick={(e)=>handleLogout("logout")}> Logout</CustomButton>
+        </div>
+        <img style={{"height":"50px", "width":"50px"}} src={logo} alt="logo" />
 
-        <button onClick={logout}>Logout</button>
+
+
+        
 
         <BrowserRouter>
           <Switch>
@@ -58,7 +66,7 @@ function App(props) {
               <Dashboard />
             </Route>
 
-            <Route path="/preferences">
+            <Route path="/redux">
               <Preferences />
             </Route>
 
