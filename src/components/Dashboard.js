@@ -8,7 +8,8 @@ import CustomSelect from './CustomSelect.js';
 import CustomButton from "./CustomButton";
 import CustomDiv from "./CustomDiv";
 import Modal from "./Modal.js";
-import { ThemeProvider } from "styled-components"
+import { ThemeProvider } from "styled-components";
+import FormInput from './../components/TextInput/FormInput';
 
 // export default function api(name) {
 //   const BUTTER_CMS_API_TOKEN = "YOUR_BUTTER_CMS_WRITE_API_TOKEN";
@@ -108,6 +109,10 @@ export default function Dashboard() {
           <CustomFormInput label="Name*" type="text" inputname="username" placeholder="enter your name" onChange={handleChange}/>
           <CustomFormInput label="Company" type="password" inputname="password" placeholder="enter your password" />
           <CustomFormInput label="Patient Name" type="email" inputname="email" case="bc" placeholder="enter your email" />
+
+          <FormInput label = "Name" type="text" inputname="username" placeholder="enter your name"/>
+          <FormInput label = "Company"  type="password" inputname="password" placeholder="enter your password"/>
+          <FormInput label = "Patient Name"  type="email" inputname="email" case="bc" placeholder="enter your email"/>
           
          
 
@@ -115,6 +120,9 @@ export default function Dashboard() {
               <CustomButton isSecondary onClick={(e)=>handleClick("reject")}>Reject Button</CustomButton>
               <CustomButton disabled onClick={(e)=>handleClick("disabled")}>Disabled Button</CustomButton>
           
+              
+
+
 
          
 

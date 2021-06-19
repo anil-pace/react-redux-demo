@@ -5,10 +5,10 @@ import Dashboard from  './components/Dashboard';
 import Login from './components/Login/Login';
 import Preferences from './components/Preferences';
 import NotFound from './components/NotFound';
-import { BrowserRouter, Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch, Redirect, withRouter } from 'react-router-dom';
 import useToken from './useToken';
 import CustomButton from "./components/CustomButton";
-
+import {Button, Menu, MenuItem} from '@material-ui/core';
 
 
 
@@ -33,6 +33,8 @@ function App(props) {
   // const [token, setToken] = useState();
   const {token, setToken} = useToken();
 
+  const [anchor, setAnchor] = useState(null);
+
   console.log("========================> token is: "  + token);
 
   if(!token) {
@@ -46,13 +48,23 @@ function App(props) {
     window.location.href = "http://localhost:3000/";
   }
 
+  const openMenu =(event) =>{
+    setAnchor(event.currentTarget);
+  }
+
+  const closeMenu =(event) =>{
+    setAnchor(null);
+  }
+
   return (
     <div className="App">
       <div className="wrapper">
 
-        <div style={{"display":"flex", "justifyContent": "flex-end"}}>
-          <h1>All React Redux Node demo, POC, homeworks here</h1>
-          <CustomButton isSecondary onClick={(e)=>handleLogout("logout")}> Logout</CustomButton>
+        <div style={{"display":"flex", "justifyContent": "space-between", "alignItems":"center"}}>
+            <Button variant="contained" onClick={openMenu}>Menu</Button>
+         
+             <h1>All React Redux Node demo, POC, homeworks here</h1>
+            <CustomButton isSecondary onClick={(e)=>handleLogout("logout")}> Logout</CustomButton>
         </div>
         <img style={{"height":"50px", "width":"50px"}} src={logo} alt="logo" />
 
@@ -61,6 +73,13 @@ function App(props) {
         
 
         <BrowserRouter>
+        <Menu 
+            open={anchor}
+            onClose={closeMenu}
+            >
+              <MenuItem onClick={closeMenu}><Link to="/">Custom ele</Link></MenuItem> 
+              <MenuItem  onClick={closeMenu}><Link to="/redux">Material ele</Link></MenuItem> 
+            </Menu>
           <Switch>
             <Route path="/dashboard">
               <Dashboard />
