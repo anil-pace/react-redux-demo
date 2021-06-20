@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Dashboard from  './components/Dashboard';
 import Login from './components/Login/Login';
 import Preferences from './components/Preferences';
+import Home from './components/Home';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Route, Link, Switch, Redirect, withRouter } from 'react-router-dom';
 import useToken from './useToken';
@@ -79,6 +80,8 @@ function App(props) {
             >
               <MenuItem onClick={closeMenu}><Link to="/">Custom ele</Link></MenuItem> 
               <MenuItem  onClick={closeMenu}><Link to="/redux">Material ele</Link></MenuItem> 
+              <MenuItem  onClick={closeMenu}><Link to="/layout">Layout</Link></MenuItem> 
+
             </Menu>
           <Switch>
             <Route path="/dashboard">
@@ -87,6 +90,10 @@ function App(props) {
 
             <Route path="/redux">
               <Preferences />
+            </Route>
+
+            <Route path="/layout">
+              <Home />
             </Route>
 
             <Route exact path="/">
