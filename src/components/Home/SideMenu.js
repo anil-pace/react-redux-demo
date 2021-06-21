@@ -48,6 +48,7 @@ function SideMenu() {
           className={classes.bigAvatar}
         />
       </Grid>
+
       <List>
         {['Profile', 'Sign Out'].map((text, index) => (
           <ListItem button key={text}>
@@ -58,6 +59,7 @@ function SideMenu() {
           </ListItem>
         ))}
       </List>
+      
     </Drawer>
   );
 }

@@ -9,13 +9,29 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Box from '@material-ui/core/Box';
 import {Select, MenuItem} from '@material-ui/core';
 import NavBar from "./NavBar";
-import styled from "styled-components";
+import Hook_1 from "./../components/MaterialUI/Button_1";
+import Hook_2 from "./../components/MaterialUI/Button_2";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+
 
 // export default styled(Button)`
 //   color: white;
 //   background-color: blue;
 //   height: 80px;
 // `;
+
+const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: "#006400"
+      },
+      secondary: {
+        main: "#ffa500"
+      }
+    },
+    bgColor: "yellow",
+    color: "#000"
+  });
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,7 +57,10 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'row',
         justifyContent: 'center',
         paddingBottom: theme.spacing(1.5)
-      }
+      },
+      borderColor:{
+        border: '5px solid red'
+    }
   }));
 
 export default function FixedContainer() {
@@ -61,6 +80,8 @@ export default function FixedContainer() {
   return (
     <React.Fragment>
       <CssBaseline />
+      <ThemeProvider theme={theme}>
+
       <Container fixed>
         <Typography component="div" style={{ backgroundColor: 'skyblue', height: '10vh' }} />
        
@@ -123,7 +144,7 @@ export default function FixedContainer() {
                     </Box>
                 </form>
             </div>
-            <div>
+            <div className={classes.borderColor}>
                     <NavBar  header="Material UI homework" />
                     <Container fixed style={{"background":"lightgreen"}}>
                         <Box style={{"fontSize": "22px", "color":"red"}} clone>
@@ -165,6 +186,12 @@ export default function FixedContainer() {
                             Link
                         </Button>
                     </Box>
+                    <Box>
+                        <Hook_1 theme = {theme}/>
+                    </Box>
+                    <Box>
+                    <Hook_2 theme={theme}/>
+                    </Box>
                     
             
                
@@ -175,6 +202,8 @@ export default function FixedContainer() {
         
 
       </Container>
+      </ThemeProvider>
+
     </React.Fragment>
   );
 }
