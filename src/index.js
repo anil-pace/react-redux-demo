@@ -3,19 +3,38 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {configureStore} from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { createStore } from 'redux';
 
-
 import myReducer from './redux/reducers/index'
+import { InsertInvitation } from '@material-ui/icons';
+
+const initialState={
+  name: "anil",
+  age: 35,
+  status: "coder"
+}
+
+
+
+
+
 
 // import configureStore from "./redux/store";
 
-const store = createStore(
-  myReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+// const store = createStore(
+//   myReducer,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ &&
+//   window.__REDUX_DEVTOOLS_EXTENSION__()
+// )
+
+const store = configureStore({
+  reducer: (state) => {
+    return state
+  },
+  preloadedState: initialState
+})
 
 ReactDOM.render(
   <Provider store={store}>

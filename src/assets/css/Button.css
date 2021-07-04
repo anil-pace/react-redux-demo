@@ -1,0 +1,9 @@
+
+.Button {
+    color: red;
+  }
+  
+  /* Increase the specificity */
+  .Button:disabled {
+    color: white;
+  }

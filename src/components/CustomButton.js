@@ -14,20 +14,16 @@ const CustomButton = styled.button`
   font-size: 16px;
   padding: 0.5rem;
 
-
-  ${props => props.isPrimary && css`
+  ${props => props.btn_blue && css`
     background: ${props => props.theme.bgColor};;
-    color: white;
   `}
 
   ${props => props.theme && css`
     background: props.theme.bgColor;
-    color: white;
   `}
   
   ${props => props.isSecondary && css`
     background: red;
-    color: white;
   `}
 
  

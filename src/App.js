@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Dashboard from  './components/Dashboard';
 import Login from './components/Login/Login';
 import Preferences from './components/Preferences';
+import Redux from './components/Redux';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Route, Link, Switch, Redirect, withRouter } from 'react-router-dom';
@@ -79,8 +80,9 @@ function App(props) {
             onClose={closeMenu}
             >
               <MenuItem onClick={closeMenu}><Link to="/">Custom ele</Link></MenuItem> 
-              <MenuItem  onClick={closeMenu}><Link to="/redux">Material ele</Link></MenuItem> 
+              <MenuItem  onClick={closeMenu}><Link to="/materialui">Material ele</Link></MenuItem> 
               <MenuItem  onClick={closeMenu}><Link to="/layout">Layout</Link></MenuItem> 
+              <MenuItem  onClick={closeMenu}><Link to="/redux">Redux</Link></MenuItem> 
 
             </Menu>
           <Switch>
@@ -88,12 +90,16 @@ function App(props) {
               <Dashboard />
             </Route>
 
-            <Route path="/redux">
+            <Route path="/materialui">
               <Preferences />
             </Route>
 
             <Route path="/layout">
               <Home />
+            </Route>
+
+            <Route path="/redux">
+              <Redux />
             </Route>
 
             <Route exact path="/">
