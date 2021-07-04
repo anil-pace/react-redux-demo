@@ -1,12 +1,14 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { create } from "jss";
-
+import {updateStatus} from "../actions"
 
 const initialState={
     name: "anil",
-    age: 35,
+    age: 30,
     status: "coder"
   };
+
+
+  // old traditional approach
 
 //  export default (state = initialState, action)=>{
 //     if(action.type === "UPDATE_AGE"){
@@ -20,6 +22,12 @@ const initialState={
 
 export default createReducer(initialState, (builder)=>{
     builder.addCase("UPDATE_AGE", (state, action)=>{
-        state.age = action.payload
+        state.age = state.age + action.payload
+    })
+    builder.addCase("UPDATE_NAME", (state, action)=>{
+        state.name =  action.payload
+    })
+    builder.addCase(updateStatus, (state, action)=>{
+        state.status =  action.payload
     })
 })
