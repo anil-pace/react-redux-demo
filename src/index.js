@@ -10,11 +10,7 @@ import { createStore } from 'redux';
 import myReducer from './redux/reducers/index'
 import { InsertInvitation } from '@material-ui/icons';
 
-const initialState={
-  name: "anil",
-  age: 35,
-  status: "coder"
-}
+import userReducer from './reducers/userReducer';
 
 
 
@@ -30,10 +26,8 @@ const initialState={
 // )
 
 const store = configureStore({
-  reducer: (state) => {
-    return state
-  },
-  preloadedState: initialState
+  reducer: userReducer
+  // preloadedState: initialState
 })
 
 ReactDOM.render(
