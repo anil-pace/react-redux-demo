@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux";
-import {updateStatus} from "./../redux/actions/userAction"; // action creator way
+// import {updateStatus} from "./../redux/actions/userAction"; // action creator way
+import {updateAge, updateName, updateStatus} from "../redux/reducers/userReducer"
 
 export default function Profile() {
 
@@ -11,11 +12,14 @@ export default function Profile() {
 
     const dispatch = useDispatch();
 
-    const updateAge=(age)=>{
-        dispatch({type:"UPDATE_AGE", payload:age})
+    const changeAge=(age)=>{
+        dispatch(updateAge(age));
+        // dispatch({type:"UPDATE_AGE", payload: age})
+
     }
-    const updateName=(name)=>{
-        dispatch({type:"UPDATE_NAME", payload: name})
+    const changeName=(name)=>{
+        dispatch(updateName(name));
+        // dispatch({type:"UPDATE_NAME", payload: name})
     }
     const ChangeStatus=(status)=>{
         dispatch(updateStatus(status));
@@ -28,8 +32,8 @@ export default function Profile() {
             <h2> I am <span style={{"color":"red"}}> {age} </span> years old</h2>
             <h2> My status is <span style={{"color":"red"}}> {status} </span></h2>
 
-            <button onClick={()=>updateName("amit kumar")}> Update Name </button>
-            <button onClick={()=>updateAge(2)}> Update Age </button>
+            <button onClick={()=>changeName("amit kumar")}> Update Name </button>
+            <button onClick={()=>changeAge(32)}> Update Age </button>
             <button onClick={()=>ChangeStatus("Married")}> Update Status </button>
         </div>
     )
