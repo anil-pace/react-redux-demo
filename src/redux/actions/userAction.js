@@ -1,3 +1,5 @@
+// old traditional approach
+
 // export default (status)=>{
 //     return {
 //         type:"UPDATE_STATUS",
@@ -5,6 +7,6 @@
 //     }
 // }
 
+// same other new way
 import {createAction} from "@reduxjs/toolkit"
-
 export const updateStatus = createAction("UPDATE_STATUS");

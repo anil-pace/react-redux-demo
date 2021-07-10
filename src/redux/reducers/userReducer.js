@@ -1,17 +1,22 @@
-const userReducer = createSlice({
-    name: "person",
-    initialState: initialState,
-    reducers: {
-        updateName(state, action){
-            state.name = action.payload
-        },
-        updateAge(state, action){
-            state.age =action.age
-        },
-        updateStatus(state, action){
-            state.status = action.status
-        }
-    }
+import {createReducer} from "@reduxjs/toolkit"; 
+import {updateStatus} from "./../actions/userAction";
+
+const initialState={
+    name: "Anil",
+    age: 30,
+    status: "Single"
+}
+
+export default createReducer(initialState, (builder)=>{
+
+    console.log("asdfkjasldfjklasjdfljasldkf")
+    builder.addCase("UPDATE_AGE", (state, action)=>{
+        state.age = state.age + action.payload
+    })
+    builder.addCase("UPDATE_NAME", (state, action)=>{
+        state.name =  action.payload
+    })
+    builder.addCase(updateStatus, (state, action)=>{
+        state.status =  action.payload
+    })
 })
-export const  {updateAge, updateName, updateStatus} = userReducer.actions
-export default userReducer.reducer

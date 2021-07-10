@@ -1,7 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux";
-// import updateStatus from "../actions" 
-import {updateStatus} from "../actions"
+import {updateStatus} from "./../redux/actions/userAction"; // action creator way
 
 export default function Profile() {
 
@@ -31,7 +30,7 @@ export default function Profile() {
 
             <button onClick={()=>updateName("amit kumar")}> Update Name </button>
             <button onClick={()=>updateAge(2)}> Update Age </button>
-            <button onClick={()=>ChangeStatus("SIngle")}> Update Status </button>
+            <button onClick={()=>ChangeStatus("Married")}> Update Status </button>
         </div>
     )
 }

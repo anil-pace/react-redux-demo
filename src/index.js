@@ -10,7 +10,7 @@ import { createStore } from 'redux';
 import myReducer from './redux/reducers/index'
 import { InsertInvitation } from '@material-ui/icons';
 
-import userReducer from './reducers/userReducer';
+import userReducer from './redux/reducers/userReducer';
 
 
 
