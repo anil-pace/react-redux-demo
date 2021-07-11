@@ -17,6 +17,8 @@ const DynamicForm = () => {
   };
 
   const handleChange = (id, event) => {
+    console.log("===========handleChange is being called==========");
+    console.log(id, event);
     const newElements = { ...elements }
     newElements.fields.forEach(field => {
       const { field_type, field_id } = field;
@@ -30,8 +32,6 @@ const DynamicForm = () => {
             field['field_value'] = event.target.value;
             break;
         }
-
-
       }
       setElements(newElements)
     });
@@ -42,8 +42,11 @@ const DynamicForm = () => {
       <div className="App container">
         <h3>{page_label}</h3>
         <form>
-          {fields ? fields.map((field, i) => <Element key={i} field={field} />) : null}
-          <button type="submit" className="btn btn-primary" onClick={(e) => handleSubmit(e)}>Submit</button>
+          {fields ? fields.map((field, i) => <Element key={i} field={field} handleChange={handleChange}/>) : null}
+          <button 
+            type="submit" 
+            className="btn btn-primary" 
+            onClick={(e) => handleSubmit(e)}>Submit</button>
         </form>
 
       </div>

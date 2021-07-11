@@ -15,7 +15,9 @@
                 "field_label": "Email",
                 "field_mandatory": "yes",
                 "field_placeholder": "Enter email",
-                "field_type": "text"
+                "field_type": "text",
+                "field_value": ""
+
             },
             {
                 "field_id": "employment",
@@ -37,7 +39,9 @@
                 "field_label": "Contact No.",
                 "field_mandatory": "yes",
                 "field_placeholder": "Enter contact no.",
-                "field_type": "text"
+                "field_type": "text",
+                "field_value": ""
+
             },
             {
                 "field_id": "driving_license",
@@ -50,7 +54,9 @@
                 "field_label": "Driving License No.",
                 "field_mandatory": "yes",
                 "field_placeholder": "e.g. 012 345 678",
-                "field_type": "text"
+                "field_type": "text",
+                "field_value": ""
+
             }
         ]
     }
