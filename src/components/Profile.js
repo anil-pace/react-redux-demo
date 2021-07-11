@@ -28,17 +28,22 @@ export default function Profile() {
     const ChangeStatus=(status)=>{
         dispatch(updateStatus(status));
     }
-    
-
     return (
-        <div>
-            <h2> My name is <span style={{"color":"red"}}> {name} </span> </h2>
-            <h2> I am <span style={{"color":"red"}}> {age} </span> years old</h2>
-            <h2> My status is <span style={{"color":"red"}}> {status} </span></h2>
+        <div style={{"display":"flex", "justifyContent":"space-around", "alignContent":"center"}}>
+            <div style={{"border":"2px solid #000", "width":"50%"}}>
+                <h1>All redux / redux toolkit</h1>
+                <h2> My name is <span style={{"color":"red"}}> {name} </span> </h2>
+                <h2> I am <span style={{"color":"red"}}> {age} </span> years old</h2>
+                <h2> My status is <span style={{"color":"red"}}> {status} </span></h2>
 
-            <button onClick={()=>changeName("amit kumar")}> Update Name </button>
-            <button onClick={()=>changeAge(32)}> Update Age </button>
-            <button onClick={()=>ChangeStatus("Married")}> Update Status </button>
+                <button onClick={()=>changeName("amit kumar")}> Update Name </button>
+                <button onClick={()=>changeAge(32)}> Update Age </button>
+                <button onClick={()=>ChangeStatus("Married")}> Update Status </button>
+            </div>
+            {/* /* Dynamic form generation  */}
+            <div style={{"border":"2px solid #000", "width":"50%"}}>
+                <h1>Dynamic Form Generation </h1> 
+            </div>
         </div>
     )
 }
