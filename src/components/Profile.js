@@ -1,6 +1,7 @@
 import { Update } from '@material-ui/icons';
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux";
+import {DynamicForm} from "../components/DynamicForm/index";
 // import {updateStatus} from "./../redux/actions/userAction"; // action creator way
 import {updateAge, updateName, updateStatus} from "../redux/reducers/userReducer"
 
@@ -42,7 +43,8 @@ export default function Profile() {
             </div>
             {/* /* Dynamic form generation  */}
             <div style={{"border":"2px solid #000", "width":"50%"}}>
-                <h1>Dynamic Form Generation </h1> 
+                <h1>Dynamic Form Generation </h1>
+                <DynamicForm /> 
             </div>
         </div>
     )
