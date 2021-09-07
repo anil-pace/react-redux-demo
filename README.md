@@ -1,3 +1,13 @@
+# HOW TO RUN THE PROJECT
+  # to start Frontend side (React)
+  npm start
+  localhost:3000
+  
+  # to start server side (NODE.js)
+   node server.js
+  
+  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
