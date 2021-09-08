@@ -13,9 +13,6 @@ export default function Profile() {
         return state;
     });
     const [currentStatus, setCurrentStatus] = useState(status);
-    const [currentName, setCurrentName] = useState(name);
-
-
     const dispatch = useDispatch();
 
     const changeAge=(age)=>{
@@ -24,18 +21,7 @@ export default function Profile() {
 
     }
     const toggleName =  () => {
-        // if (currentName === "Anil Kumar") {
-            // const res = await fetch("https://jsonplaceholder.typicode.com/users")
-            // const res2 = await res.json();
-            // dispatch(updateName(res2[0].name));
-             dispatch(fetchUserName());
-            // setCurrentName(res2[0].name);
-        // }
-        // else {
-            // setCurrentName("Anil Kumar");
-        // }
-        // dispatch(updateName(name));
-        // dispatch({type:"UPDATE_NAME", payload: name})
+        dispatch(fetchUserName());
     }
     const toggleStatus = () => {
         currentStatus === "Single" ?
@@ -48,11 +34,11 @@ export default function Profile() {
             <div style={{"border":"2px solid #000", "width":"50%"}}>
                 <h1>All redux / redux toolkit</h1>
                 <hr />
-                <h2> My name is <span style={{"color":"red"}}> {currentName} </span> </h2>
+                <h2> My name is <span style={{"color":"red"}}> {name} </span> </h2>
                 <h2> I am <span style={{"color":"red"}}> {age} </span> years old</h2>
                 <h2> My status is <span style={{"color":"red"}}> {currentStatus} </span></h2>
 
-                <button onClick={()=>toggleName()}> Toggle Name </button>
+                <button onClick={()=>toggleName()}> Fetch Random Name </button>
                 <button onClick={()=>changeAge(32)}> Update Age </button>
                 <button onClick={()=>toggleStatus()}> Toggle Status </button>
             </div>

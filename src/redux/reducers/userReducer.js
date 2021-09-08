@@ -1,6 +1,6 @@
 import {createReducer} from "@reduxjs/toolkit"; 
 // import {updateStatus} from "./../actions/userAction";  //not needed anymore
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk, extraReducers} from "@reduxjs/toolkit";
 
 
 const initialState={
@@ -14,7 +14,7 @@ export const fetchUserName = createAsyncThunk(
     async () => {
         const res = await fetch("https://jsonplaceholder.typicode.com/users")
         const res2 = await res.json();
-        return res2[0].name;
+        return res2[Math.floor(Math.random()*10)].name;
     }
 )
  const userReducer = createSlice({
@@ -46,7 +46,6 @@ export const fetchUserName = createAsyncThunk(
          [fetchUserName.rejected]: (state, action) => {
             state.name = "try again!";
         },
-         
     }
 })
 export default userReducer.reducer
