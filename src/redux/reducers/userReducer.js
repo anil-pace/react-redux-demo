@@ -1,6 +1,6 @@
 import {createReducer} from "@reduxjs/toolkit"; 
 // import {updateStatus} from "./../actions/userAction";  //not needed anymore
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 
 
 const initialState={
@@ -9,20 +9,14 @@ const initialState={
     status: "Single"
 }
 
-// export default createReducer(initialState, (builder)=>{
-
-//     console.log("asdfkjasldfjklasjdfljasldkf")
-//     builder.addCase("UPDATE_AGE", (state, action)=>{
-//         state.age = state.age + action.payload
-//     })
-//     builder.addCase("UPDATE_NAME", (state, action)=>{
-//         state.name =  action.payload
-//     })
-//     builder.addCase(updateStatus, (state, action)=>{
-//         state.status =  action.payload
-//     })
-// })
-
+export const fetchUserName = createAsyncThunk(
+    "fetchUserName",
+    async () => {
+        const res = await fetch("https://jsonplaceholder.typicode.com/users")
+        const res2 = await res.json();
+        return res2[0].name;
+    }
+)
  const userReducer = createSlice({
     name:"person",
     initialState,
@@ -41,6 +35,18 @@ const initialState={
             console.log("==update status ==>");
             state.status = action.payload
         }
+     },
+     extraReducers: {
+         [fetchUserName.fulfilled]: (state, action) => {
+             state.name = action.payload;
+         },
+         [fetchUserName.pending]: (state, action) => {
+            state.name = "loading...";
+         },
+         [fetchUserName.rejected]: (state, action) => {
+            state.name = "try again!";
+        },
+         
     }
 })
 export default userReducer.reducer

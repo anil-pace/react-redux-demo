@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import DynamicForm from "../components/DynamicForm/index";
 // import {updateStatus} from "./../redux/actions/userAction"; // action creator way
-import {updateAge, updateName, updateStatus} from "../redux/reducers/userReducer"
+import { updateAge, updateName, updateStatus, fetchUserName } from "../redux/reducers/userReducer";
 
 export default function Profile() {
 
@@ -23,16 +23,17 @@ export default function Profile() {
         // dispatch({type:"UPDATE_AGE", payload: age})
 
     }
-    const toggleName = async () => {
-        if (currentName === "Anil Kumar") {
-            const res = await fetch("https://jsonplaceholder.typicode.com/users")
-            const res2 = await res.json();
-            dispatch(updateName(res2[0].name));
-            setCurrentName(res2[0].name);
-        }
-        else {
-            setCurrentName("Anil Kumar");
-        }
+    const toggleName =  () => {
+        // if (currentName === "Anil Kumar") {
+            // const res = await fetch("https://jsonplaceholder.typicode.com/users")
+            // const res2 = await res.json();
+            // dispatch(updateName(res2[0].name));
+             dispatch(fetchUserName());
+            // setCurrentName(res2[0].name);
+        // }
+        // else {
+            // setCurrentName("Anil Kumar");
+        // }
         // dispatch(updateName(name));
         // dispatch({type:"UPDATE_NAME", payload: name})
     }
