@@ -4,7 +4,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 
 const initialState={
-    name: "Anil",
+    name: "Anil Kumar",
     age: 30,
     status: "Single"
 }
