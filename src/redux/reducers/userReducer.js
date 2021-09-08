@@ -41,7 +41,7 @@ export const fetchUserName = createAsyncThunk(
              state.name = action.payload;
          },
          [fetchUserName.pending]: (state, action) => {
-            state.name = "loading...";
+             state.name = <span style={{"color":"green"}}>loading...</span>;
          },
          [fetchUserName.rejected]: (state, action) => {
             state.name = "try again!";
